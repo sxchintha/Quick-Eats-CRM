@@ -18,10 +18,10 @@
     <!-- Popup form -->
     <div id="myModal" class="modal">
         <div class="modal-content">
-            <form method="POST" action="actions/addNewSalesPerson.php">
+            <form method="POST" action="" id="userForm" onkeydown="return event.key != 'Enter';">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Add new User</h2>
+                    <h2 id="modelTitle"></h2>
                 </div>
                 <div class="modal-body">
                     <span class="special">Required *</span>
@@ -57,11 +57,14 @@
                             <td><input type="text" id="uNIC" name="uNIC" required></td>
                         </tr>
                     </table>
-                    <p id="modelNote">Default password for the account: <span class="special">quickeats123</span></p>
+                    <p id="modelNote">Note: Default password for the account: <span class="special">quickeats123</span></p>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" value="Add User">
-                    <input type="reset" value="Clear">
+                    <input type="hidden" id="sendSID" name="sendSID">
+                    <input id="btnAdd" type="submit" formaction="actions/addNewSalesPerson.php" value="Add User">
+                    <input id="btnUpdate" type="submit" formaction="actions/updateSalesPerson.php" value="Update Details">
+                    <input id="btnDelete" type="submit" formaction="actions/removeSalesPerson.php" value="Remove User">
+                    <input id="btnClear" type="reset" value="Clear">
                 </div>
             </form>
         </div>
@@ -79,6 +82,7 @@
             <th>Tel No</th>
             <th>Email</th>
             <th>NIC</th>
+            <th>Manage</th>
         </tr>
         <?php
         require 'actions/dbConfig.php';
@@ -89,14 +93,6 @@
 
         while ($row = $result->fetch_assoc()) {
         ?>
-            <!-- <script>
-                var sid = <?php echo $row["SID"]; ?>;
-                var uname = "<?php echo $row["Name"]; ?>";
-                var address = "<?php echo $row["Address"]; ?>";
-                var pNo = <?php echo "0" . $row["PhoneNumber"]; ?>;
-                var email = "<?php echo $row["Email"]; ?>";
-                var nic = "<?php echo $row["NIC"]; ?>";
-            </script> -->
             <tr>
                 <td id="showSID"><?php echo $row["SID"]; ?></td>
                 <td id="showName"><?php echo $row["Name"]; ?></td>
@@ -105,11 +101,10 @@
                 <td id="showEmail"><?php echo $row["Email"]; ?></td>
                 <td id="showNIC"><?php echo $row["NIC"]; ?></td>
                 <td>
-                    <!-- <button id="editUser" onclick="editUser(sid, uname, address, pNo, email, nic)">Edit</button> -->
                     <?php
-                    echo "<button onclick=" . '"editUser(' . $row["SID"] . ", '" . $row["Name"] . "', '" . $row["Address"] . "', '0" . $row["PhoneNumber"] . "', '" . $row["Email"] . "', '" . $row["NIC"] . "'" . ')"' . ">Edit</button>"
+                    echo "<button onclick=" . '"editUser(' . $row["SID"] . ", '" . $row["Name"] . "', '" . $row["Address"] . "', '0" . $row["PhoneNumber"] . "', '" . $row["Email"] . "', '" . $row["NIC"] . "'" . ')"' . ">Edit</button>";
+                    echo "<button onclick=" . '"deleteUser(' . $row["SID"] . ", '" . $row["Name"] . "', '" . $row["Address"] . "', '0" . $row["PhoneNumber"] . "', '" . $row["Email"] . "', '" . $row["NIC"] . "'" . ')"' . ">Remove</button>";
                     ?>
-                    <button id="deleteUser">Delete</button>
                 </td>
             </tr>
         <?php

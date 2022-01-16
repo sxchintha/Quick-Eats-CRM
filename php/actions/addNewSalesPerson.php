@@ -9,7 +9,7 @@ $NIC = $_POST['uNIC'];
 $password = "quickeats123";
 $RegisteredBy = 1;
 
-// Check for duplicate details
+// Check for duplicate details before insert to the table
 $chkDuplicateNIC = mysqli_query($con, "select * from sales_person where NIC = '$NIC'");
 $chkDuplicateEmail = mysqli_query($con, "select * from sales_person where Email = '$email'");
 $chkDuplicateTel = mysqli_query($con, "select * from sales_person_phone where PhoneNumber = '$telNo'");
@@ -23,12 +23,14 @@ if (mysqli_num_rows($chkDuplicateNIC) > 0) {
 } else if (mysqli_num_rows($chkDuplicateTel) > 0) {
     echo "<script> alert('A user has already registered with this Phone number');";
     echo "window.location.href = '../SalesPerson.php';</script>";
-} else {
-    // If there are no duplicates, insert data into the database
+}
+
+// If there are no duplicates, insert data into the database
+else {
     $staffSQL = "insert into staff(Username, Name, Password) values('$NIC', '$name', '$password')";
 
     if (mysqli_query($con, $staffSQL)) {
-        $SID = mysqli_insert_id($con);
+        $SID = mysqli_insert_id($con); // Get the last id from the staff table (to add user details to sales_person and sales_person_phone tables)
 
         $spSQL = "insert into sales_person(SID, Address, Email, NIC, RegisteredBy) values('$SID', '$address', '$email', '$NIC', '$RegisteredBy')";
         $spTelSQL = "insert into sales_person_phone(SID, PhoneNumber) values('$SID', '$telNo')";
