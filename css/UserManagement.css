@@ -1,10 +1,10 @@
 /* Colors use in the website */
 
 :root {
-    --color1: #1b364c;
-    --color2: #3b5267;
-    --color3: #b1d1e0;
-    --color4: #d4e8f3;
+    --color1: #1A374D;
+    --color2: #406882;
+    --color3: #6998AB;
+    --color4: #B1D0E0;
     --color5: #e5f2fc;
     --color6: white;
 }
@@ -23,7 +23,7 @@ body {
 /* Styles for Add new user button */
 
 #addNewButton {
-    background-color: var(--color3);
+    background-color: var(--color4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,11 +36,11 @@ body {
     font-size: 25px;
     margin: 10px;
     padding: 0px 10px 2px;
-    color: white;
 }
 
 #addNewButton:hover {
-    background-color: #ddd;
+    background-color: var(--color2);
+    color: var(--color6);
 }
 
 
@@ -58,6 +58,7 @@ body {
 
 .userTable th {
     background-color: var(--color3);
+    color: var(--color6);
 }
 
 
@@ -75,7 +76,8 @@ body {
 }
 
 .userTable tr:hover {
-    background-color: #ddd;
+    background-color: var(--color2);
+    color: var(--color6);
 }
 
 

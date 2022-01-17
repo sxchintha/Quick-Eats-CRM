@@ -38,14 +38,25 @@ else {
 
         if (mysqli_query($con, $spSQL)) {
             if (mysqli_query($con, $spTelSQL)) {
+                // All data added success fully to the relevant tables
                 echo "<script> alert('User added to the system!');";
                 echo "window.location.href = '../SalesPerson.php';</script>";
+            } else {
+                // If the phone number doesn't insert to the table, remove data from salesperson and staff tables
+                $sql .= "delete from sales_person where SID=$SID;";
+                $sql .= "delete from staff where SID=$SID;";
+                mysqli_multi_query($con, $sql);
             }
+        } else {
+            // If the data doesn't insert to the salesperson table, remove data from staff table
+            $sql .= "delete from staff where SID=$SID;";
+            mysqli_query($con, $sql);
         }
-    } else {
-        echo "<script> alert('Database Error! Please try again.');";
-        echo "window.location.href = '../SalesPerson.php';</script>";
     }
+
+    // If there is an error with inserting data into the relevant tables, show an error
+    echo "<script> alert('Database Error! Please try again.');";
+    echo "window.location.href = '../SalesPerson.php';</script>";
 }
 
 mysqli_close($con);
