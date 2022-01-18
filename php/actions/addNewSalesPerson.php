@@ -38,7 +38,7 @@ else {
 
         if (mysqli_query($con, $spSQL)) {
             if (mysqli_query($con, $spTelSQL)) {
-                // All data added success fully to the relevant tables
+                // All data added successfully to the relevant tables
                 echo "<script> alert('User added to the system!');";
                 echo "window.location.href = '../SalesPerson.php';</script>";
             } else {

@@ -45,7 +45,7 @@
                         <tr>
                             <td>Tel No <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="number" min="0" id="uTelNo" name="uTelNo" required></td>
+                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" required></td>
                         </tr>
                         <tr>
                             <td>Email <span class="special">*</span></td>
@@ -53,13 +53,13 @@
                             <td><input type="email" id="uEmail" name="uEmail" required></td>
                         </tr>
                     </table>
-                    <p id="modalNote">Note: Default password for the account: <span class="special">quickeats123</span></p>
+                    <p id="modalNote" style="display: none;">Note: Default password for the account: <span class="special">quickeats123</span></p>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" id="sendSID" name="sendSID"> <!-- Use to send the ID of the user when updating the user details -->
-                    <input id="btnAdd" type="submit" formaction="" value="Add User">
+                    <input id="btnAdd" type="submit" formaction="actions/addNewCustomer.php" value="Add User">
                     <input id="btnUpdate" type="submit" formaction="" value="Update Details">
-                    <input id="btnDelete" type="submit" formaction="" value="Remove User">
+                    <input id="btnDelete" type="submit" formaction="actions/removeCustomer.php" value="Remove User">
                     <input id="btnClear" type="reset" value="Clear">
                 </div>
             </form>
@@ -84,7 +84,7 @@
         require 'actions/dbConfig.php';
 
         // Select all data of sales people from staff, sales_person and sales_person_phone tables
-        $sql = "SELECT customer.Name as cusName, staff.Name as SPName, PhoneNumber, Address, Email FROM `customer` join staff on staff.SID = customer.ManagedBy order by 'Name'";
+        $sql = "SELECT customer.Name as cusName, staff.Name as SPName, PhoneNumber, `Address`, Email FROM `customer` join staff on staff.SID = customer.ManagedBy ORDER BY `cusName`";
         $result = mysqli_query($con, $sql);
         $count = 1;
 

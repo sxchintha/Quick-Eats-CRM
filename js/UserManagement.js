@@ -23,6 +23,7 @@ var userForm = document.getElementById("userForm"); // Add/Update users form
 var modalTitle = document.getElementById("modalTitle"); // Title of the popup form
 
 
+// Set which buttons and the title to show in the from
 function addUserButton() {
     modal.style.display = "block";
     modalSID.style.display = "none";
@@ -65,6 +66,7 @@ function deleteUserButton() {
 }
 
 
+// Set selected user's info in the form
 function addSP() {
     window.addUserButton();
 }
@@ -91,13 +93,13 @@ function deleteUserSP(sid, name, address, pNo, email, nic) {
 }
 
 
+// Set selected customer's info in the form
 function addCus() {
     window.addUserButton();
     modalNote.style.display = "none";
 }
 
 function setDetailsCus(name, address, pNo, email) {
-    document.getElementById("uName").value = "jkdhsa";
     document.getElementById("uName").value = name;
     document.getElementById("uAddress").value = address;
     document.getElementById("uTelNo").value = pNo;

@@ -45,7 +45,8 @@
                         <tr>
                             <td>Tel No <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="number" min="0" id="uTelNo" name="uTelNo" required></td>
+                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" required></td>
+                            <td>(Please enter 10 digit phone number)</td>
                         </tr>
                         <tr>
                             <td>Email <span class="special">*</span></td>
