@@ -104,6 +104,7 @@ function setDetailsCus(name, address, pNo, email) {
     document.getElementById("uAddress").value = address;
     document.getElementById("uTelNo").value = pNo;
     document.getElementById("uEmail").value = email;
+    document.getElementById("currentTel").value = pNo; // To send the current telNo with form data
 }
 
 function editUserCus(name, address, pNo, email) {

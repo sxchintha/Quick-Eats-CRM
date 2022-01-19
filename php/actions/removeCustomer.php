@@ -1,8 +1,8 @@
 <?php
 include_once 'dbConfig.php';
 
-$pNo = $_POST['uTelNo'];
 $SID = 1; // Staff ID of the user who removed the customer
+$pNo = $_POST['uTelNo'];
 $task = "Remove";
 
 date_default_timezone_set("Asia/Colombo"); // Set default  timezone to Asiz/Colombo

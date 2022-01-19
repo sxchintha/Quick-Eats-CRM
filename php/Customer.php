@@ -56,9 +56,9 @@
                     <p id="modalNote" style="display: none;">Note: Default password for the account: <span class="special">quickeats123</span></p>
                 </div>
                 <div class="modal-footer">
-                    <input type="hidden" id="sendSID" name="sendSID"> <!-- Use to send the ID of the user when updating the user details -->
+                    <input type="hidden" id="currentTel" name="currentTel"> <!-- Use to send the current telNo of the user when updating the user details -->
                     <input id="btnAdd" type="submit" formaction="actions/addNewCustomer.php" value="Add User">
-                    <input id="btnUpdate" type="submit" formaction="" value="Update Details">
+                    <input id="btnUpdate" type="submit" formaction="actions/updateCustomer.php" value="Update Details">
                     <input id="btnDelete" type="submit" formaction="actions/removeCustomer.php" value="Remove User">
                     <input id="btnClear" type="reset" value="Clear">
                 </div>

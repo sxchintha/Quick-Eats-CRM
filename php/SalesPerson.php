@@ -56,7 +56,7 @@
                         <tr>
                             <td>NIC <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="text" id="uNIC" name="uNIC" required></td>
+                            <td><input type="text" id="uNIC" name="uNIC" pattern="[0-9]{9}V|.[0-9]{11}" required></td>
                         </tr>
                     </table>
                     <p id="modalNote">Note: Default password for the account: <span class="special">quickeats123</span></p>
