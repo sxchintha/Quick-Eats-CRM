@@ -8,12 +8,15 @@
 
 <body>
 
+    <div class="logo"><img src="../img/logo blue.png"></div>
     <h2>Sales Person</h2>
     <!-- Add a new User -->
     <button id="addNewButton" onclick="addSP();">
         <span><strong>&#43;</strong></span>
         Add new Sales Person
     </button>
+    <br>
+    <hr>
 
     <!-- Popup form -->
     <div id="myModal" class="modal">
@@ -25,38 +28,38 @@
                     <h2 id="modalTitle"></h2>
                 </div>
                 <div class="modal-body">
-                    <span class="special">Required *</span>
+                    <br>
+                    <span class="special">Required *</span><br>
                     <table>
                         <tr id="modalSID" style="display: none;">
-                            <td>ID</span></td>
-                            <td>:</td>
-                            <td><label for="SID" id="uSID"></label></td>
+                            <th>ID</span></th>
+                            <th>:</th>
+                            <th><label for="SID" id="uSID"></label></th>
                         </tr>
                         <tr>
                             <td>Name <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="text" id="uName" name="uName" required></td>
+                            <td><input type="text" id="uName" name="uName" placeholder="Enter name here..." required></td>
                         </tr>
                         <tr>
                             <td>Address <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="text" id="uAddress" name="uAddress" required></td>
+                            <td><input type="text" id="uAddress" name="uAddress" placeholder="Enter address here..." required></td>
                         </tr>
                         <tr>
                             <td>Tel No <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" required></td>
-                            <td>(Please enter 10 digit phone number)</td>
+                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" placeholder="Enter 10 digit phone number..." required></td>
                         </tr>
                         <tr>
                             <td>Email <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="email" id="uEmail" name="uEmail" required></td>
+                            <td><input type="email" id="uEmail" name="uEmail" placeholder="Enter e-mail here..." required></td>
                         </tr>
                         <tr>
                             <td>NIC <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="text" id="uNIC" name="uNIC" pattern="[0-9]{9}V|.[0-9]{11}" required></td>
+                            <td><input type="text" id="uNIC" name="uNIC" pattern="[0-9]{9}V|.[0-9]{11}" placeholder="Enter NIC here (Ex: 123456789V, 123456789123)" required></td>
                         </tr>
                     </table>
                     <p id="modalNote">Note: Default password for the account: <span class="special">quickeats123</span></p>

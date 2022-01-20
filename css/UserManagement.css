@@ -15,6 +15,18 @@ body {
     color: var(--color1);
 }
 
+.logo {
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 0px;
+    right: 0px;
+}
+
 .special {
     color: red;
 }
@@ -30,6 +42,7 @@ body {
     padding: 10px 20px;
     border: 0;
     font-size: 16px;
+    border-radius: 5px;
 }
 
 #addNewButton span {
@@ -140,7 +153,7 @@ body {
 /* The Close Button */
 
 .close {
-    color: white;
+    color: var(--color5);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -148,7 +161,7 @@ body {
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: var(--color6);
     text-decoration: none;
     cursor: pointer;
 }
@@ -164,9 +177,48 @@ body {
 }
 
 .modal-footer {
-    padding: 2px 16px;
+    padding: 10px 20px;
     background-color: var(--color1);
     color: white;
+}
+
+td button {
+    background-color: var(--color2);
+    padding: 5px 8px;
+    color: white;
+    margin: 3px;
+    border: solid var(--color6) 1px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+td button:hover,
+input[type=submit]:hover,
+input[type=reset]:hover {
+    background-color: var(--color6);
+    color: #1A374D;
+}
+
+input[type=submit],
+input[type=reset] {
+    background-color: var(--color2);
+    color: var(--color6);
+    padding: 14px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+input[type=text],
+input[type=tel],
+input[type=email] {
+    padding: 6px 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 400px;
 }
 
 

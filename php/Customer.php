@@ -8,12 +8,15 @@
 
 <body>
 
-    <h2>Sales Person</h2>
+    <div class="logo"><img src="../img/logo blue.png"></div>
+    <h2>Customers</h2>
     <!-- Add a new User -->
     <button id="addNewButton" onclick="addCus();">
         <span><strong>&#43;</strong></span>
         Add new Customer
     </button>
+    <br>
+    <hr>
 
     <!-- Popup form -->
     <div id="myModal" class="modal">
@@ -35,22 +38,22 @@
                         <tr>
                             <td>Name <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="text" id="uName" name="uName" required></td>
+                            <td><input type="text" id="uName" name="uName" placeholder="Enter name here..." required></td>
                         </tr>
                         <tr>
                             <td>Address</td>
                             <td>:</td>
-                            <td><input type="text" id="uAddress" name="uAddress" required></td>
+                            <td><input type="text" id="uAddress" name="uAddress" placeholder="Enter address here..." required></td>
                         </tr>
                         <tr>
                             <td>Tel No <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" required></td>
+                            <td><input type="tel" id="uTelNo" name="uTelNo" pattern="[0-9]{10}" placeholder="Enter 10 digit phone number..." required></td>
                         </tr>
                         <tr>
                             <td>Email <span class="special">*</span></td>
                             <td>:</td>
-                            <td><input type="email" id="uEmail" name="uEmail" required></td>
+                            <td><input type="email" id="uEmail" name="uEmail" placeholder="Enter e-mail here..." required></td>
                         </tr>
                     </table>
                     <p id="modalNote" style="display: none;">Note: Default password for the account: <span class="special">quickeats123</span></p>
@@ -68,7 +71,7 @@
     </div>
 
 
-    <h2>All Users</h2>
+    <h2>All Customers</h2>
     <!-- Show the details of all users -->
     <table class="userTable">
         <tr>
