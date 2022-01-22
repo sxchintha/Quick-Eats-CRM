@@ -1,21 +1,28 @@
 /* divide web page to two parts*/
-.colom{
+
+.colom {
     float: left;
     height: 100%;
 }
 
-.left{
+.left {
     width: 20%;
     background-color: #1A374D;
-    
-}
-.right{
-    width: 80%;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
+.right {
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+}
+
+
 /* make button */
-.btn{
+
+.btn {
     font-size: larger;
     background-color: #406882;
     width: 230px;
@@ -24,19 +31,21 @@
     border: none;
     color: white;
 }
-button:hover{
+
+button:hover {
     background-color: white;
     color: #406882;
-  }
-.centerbtn{  
-    text-align: center;    
-    width: 100%;  
-    height: 40px;  
-    padding-top: 150px;  
-    } 
+}
 
-.centerbtn1{  
-        text-align: center;    
-        width: 100%;  
-        height: 40px;    
-        } 
+.centerbtn {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    padding-top: 150px;
+}
+
+.centerbtn1 {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
