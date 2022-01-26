@@ -84,6 +84,10 @@
 
 
         <h2>All Customers</h2>
+        <form action="Customer.php" method="GET">
+            <input type="text" name="search" placeholder="Search here...">
+            <button type="submit" id="addNewButton" style="display: inline-block;">Search</button>
+        </form><br>
         <!-- Show the details of all users -->
         <table class="userTable">
             <tr>
@@ -92,21 +96,21 @@
                 <th>Tel No</th>
                 <th>Email</th>
                 <th>Address</th>
-
-                <?php
-
-                if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
-                    echo '<th>Registered by</th>';
-                }
-                ?>
-
                 <th>Manage</th>
             </tr>
             <?php
             require 'actions/dbConfig.php';
+            if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["search"])) {
+                $search = $_GET["search"];
+                // Select searched data of customers
+                $sql = "SELECT customer.Name as cusName, PhoneNumber, `Address`, Email FROM `customer`
+                WHERE customer.Name = '%$search%' OR `Address` LIKE '%$search%' OR customer.Email LIKE '%$search%' OR PhoneNumber LIKE '%$search%'
+                ORDER BY `cusName`";
+            } else {
+                // Select all data of customers
+                $sql = "SELECT customer.Name as cusName, PhoneNumber, `Address`, Email FROM `customer` ORDER BY `cusName`";
+            }
 
-            // Select all data of sales people from staff, sales_person and sales_person_phone tables
-            $sql = "SELECT customer.Name as cusName, staff.Name as SPName, PhoneNumber, `Address`, Email FROM `customer` join staff on staff.SID = customer.ManagedBy ORDER BY `cusName`";
             $result = mysqli_query($con, $sql);
             $count = 1;
 
@@ -118,13 +122,6 @@
                     <td><?php echo "0" . $row["PhoneNumber"]; ?></td>
                     <td><?php echo $row["Email"]; ?></td>
                     <td><?php echo $row["Address"]; ?></td>
-
-                    <?php
-
-                    if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
-                        echo '<td>' . $row["SPName"] . '</td>';
-                    }
-                    ?>
 
                     <td>
                         <?php

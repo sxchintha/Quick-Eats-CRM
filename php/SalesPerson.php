@@ -90,6 +90,11 @@
 
 
         <h2>All Users</h2>
+        <form action="SalesPerson.php" method="GET">
+            <input type="text" name="search" placeholder="Search here...">
+            <button type="submit" id="addNewButton" style="display: inline-block;">Search</button>
+        </form><br>
+
         <!-- Show the details of all users -->
         <table class="userTable">
             <tr>
@@ -104,8 +109,15 @@
             <?php
             require 'actions/dbConfig.php';
 
-            // Select all data of sales people from staff, sales_person and sales_person_phone tables
-            $sql = "SELECT * FROM `sales_person` JOIN sales_person_phone ON sales_person.SID = sales_person_phone.SID JOIN staff ON staff.SID=sales_person.SID";
+            if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET["search"])) {
+                $search = $_GET["search"];
+                // Select searched data of sales people from staff, sales_person and sales_person_phone tables
+                $sql = "SELECT * FROM `sales_person` JOIN sales_person_phone ON sales_person.SID = sales_person_phone.SID JOIN staff ON staff.SID=sales_person.SID
+                WHERE staff.SID = '$search' OR `Name` LIKE '%$search%' OR `Address` LIKE '%$search%' OR `Email` LIKE '%$search%' OR `NIC` LIKE '%$search%'";
+            } else {
+                // Select all data of sales people from staff, sales_person and sales_person_phone tables
+                $sql = "SELECT * FROM `sales_person` JOIN sales_person_phone ON sales_person.SID = sales_person_phone.SID JOIN staff ON staff.SID=sales_person.SID";
+            }
             $result = mysqli_query($con, $sql);
 
             while ($row = $result->fetch_assoc()) {
