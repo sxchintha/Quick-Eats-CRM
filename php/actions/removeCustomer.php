@@ -1,7 +1,13 @@
 <?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("location: php/Customer.php");
+}
+
 include_once 'dbConfig.php';
 
-$SID = 1; // Staff ID of the user who removed the customer
+$SID = $_SESSION["SID"]; // Staff ID of the user who removed the customer
 $pNo = $_POST['uTelNo'];
 $task = "Remove";
 

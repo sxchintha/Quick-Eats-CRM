@@ -37,6 +37,18 @@ body {
     color: #1A374D;
 }
 
+.logo {
+    position: relative;
+}
+
+.logo img {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 0px;
+    right: 0px;
+}
+
 .logow {
     margin-top: 50px;
     height: 200px;

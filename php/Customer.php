@@ -4,15 +4,14 @@
 <head>
     <title>Customer - Management</title>
     <link rel="stylesheet" href="../css/UserManagement.css">
+    <link rel="icon" href="../img/favicon.ico">
 </head>
 
 <body>
     <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    session_start();
 
-    // Check if the user is logged in, if not then redirect him to login page
+    // Check if the user is logged in, if not then redirect to login page
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         header("location: ../index.php");
         exit;
@@ -93,7 +92,14 @@
                 <th>Tel No</th>
                 <th>Email</th>
                 <th>Address</th>
-                <th>Registered by</th>
+
+                <?php
+
+                if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
+                    echo '<th>Registered by</th>';
+                }
+                ?>
+
                 <th>Manage</th>
             </tr>
             <?php
@@ -112,7 +118,14 @@
                     <td><?php echo "0" . $row["PhoneNumber"]; ?></td>
                     <td><?php echo $row["Email"]; ?></td>
                     <td><?php echo $row["Address"]; ?></td>
-                    <td><?php echo $row["SPName"]; ?></td>
+
+                    <?php
+
+                    if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
+                        echo '<td>' . $row["SPName"] . '</td>';
+                    }
+                    ?>
+
                     <td>
                         <?php
                         echo "<button onclick=" . '"editUserCus(' . "'" . $row["cusName"] . "', '" . $row["Address"] . "', '0" . $row["PhoneNumber"] . "', '" . $row["Email"] . "'" . ')"' . ">Edit</button>";

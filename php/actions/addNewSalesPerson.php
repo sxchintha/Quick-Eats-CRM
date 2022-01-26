@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("location: php/Customer.php");
+}
+
 include_once 'dbConfig.php';
 
 $name = $_POST['uName'];
@@ -7,7 +13,7 @@ $telNo = $_POST['uTelNo'];
 $email = $_POST['uEmail'];
 $NIC = $_POST['uNIC'];
 $password = "quickeats123";
-$RegisteredBy = 1;
+$RegisteredBy = $_SESSION["SID"];
 
 // Check for duplicate details before insert to the table
 $chkDuplicateNIC = mysqli_query($con, "select * from sales_person where NIC = '$NIC'");

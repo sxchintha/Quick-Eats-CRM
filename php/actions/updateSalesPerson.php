@@ -1,4 +1,9 @@
 <?php
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("location: php/Customer.php");
+}
+
 include_once 'dbConfig.php';
 
 $SID = $_POST['sendSID'];

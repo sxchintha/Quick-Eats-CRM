@@ -1,11 +1,17 @@
 <?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("location: php/Customer.php");
+}
+
 include_once 'dbConfig.php';
 
 $name = $_POST['uName'];
 $address = $_POST['uAddress'];
 $telNo = $_POST['uTelNo'];
 $email = $_POST['uEmail'];
-$RegisteredBy = 1;
+$RegisteredBy = $_SESSION["SID"];
 
 // Check for duplicate details before insert to the table
 $chkDuplicateEmail = mysqli_query($con, "select * from customer where Email = '$email'");

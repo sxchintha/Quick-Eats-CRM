@@ -11,11 +11,10 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && !empty($_S
 
     if ($chkResult->num_rows > 0) {
         $_SESSION["user"] = "Admin";
-        header("location: php/SalesPerson.php");
     } else {
         $_SESSION["user"] = "SalesPerson";
-        header("location: php/Customer.php");
     }
+    header("location: php/Tasks.php");
     exit;
 }
 
@@ -59,11 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if ($chkResult->num_rows > 0) {
                     $_SESSION["user"] = "Admin";
-                    header("location: php/SalesPerson.php");
                 } else {
                     $_SESSION["user"] = "SalesPerson";
-                    header("location: php/Customer.php");
                 }
+                header("location: php/Tasks.php");
                 exit;
             }
         } else {
@@ -85,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - QuickEats</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico">
 </head>
 
 <body>
@@ -106,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <?php
             if (!empty($login_err)) {
-                echo '<div>' . $login_err . '</div>';
+                echo '<div style="color: red;">' . $login_err . '</div>';
             }
             ?>
             <form method="POST" action="index.php">
@@ -118,9 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="pword">
                     <caption>Password</caption>
                     <br> <input type="password" name="password" size="30" class="type-pwrd" required>
-                    <a href="">
-                        <p>forgot password?</p>
-                    </a>
                 </div>
 
                 <div>

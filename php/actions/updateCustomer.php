@@ -1,7 +1,13 @@
 <?php
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("location: php/Customer.php");
+}
+
 include_once 'dbConfig.php';
 
-$SID = 1;
+$SID = $_SESSION["SID"];
 $name = $_POST['uName'];
 $address = $_POST['uAddress'];
 $telNo = $_POST['uTelNo'];

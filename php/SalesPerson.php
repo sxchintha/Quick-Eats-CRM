@@ -9,11 +9,9 @@
 
 <body>
     <?php
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    session_start();
 
-    // Check if the user is logged in, if not then redirect him to login page
+    // Check if the user is logged in, if not then redirect to login page
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["user"] != "Admin") {
         header("location: ../index.php");
         exit;

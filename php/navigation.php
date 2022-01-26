@@ -17,10 +17,15 @@
         }
         ?>
         <div class="centerbtn">
-            <a href="home.html"> <button class="btn"> Home </button> </a>
+            <a href="Tasks.php"> <button class="btn"> Home </button> </a>
         </div>
         </br>
 
+
+        <div class="centerbtn1">
+            <a href="Customer.php"> <button class="btn"> Coustomers </button> </a>
+        </div>
+        </br>
         <?php
 
         if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
@@ -32,19 +37,7 @@
         ?>
 
         <div class="centerbtn1">
-            <a href="Customer.php"> <button class="btn"> Coustomers </button> </a>
-        </div>
-        </br>
-        <div class="centerbtn1">
-            <a href="home.html"> <button class="btn"> Activity Log </button> </a>
-        </div>
-        </br>
-        <div class="centerbtn1">
-            <a href="home.html"> <button class="btn"> Promotions </button> </a>
-        </div>
-        </br>
-        <div class="centerbtn1">
-            <a href="home.html"> <button class="btn"> Change Password </button> </a>
+            <a href="AdminPassChange.php"> <button class="btn"> Change Password </button> </a>
         </div>
         </br>
         <div class="centerbtn1">
