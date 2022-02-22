@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Sales Person - Management</title>
+    <title>Salesperson - Management</title>
     <link rel="stylesheet" href="../css/UserManagement.css">
     <link rel="icon" href="../img/favicon.ico">
 </head>
@@ -21,11 +21,11 @@
     ?>
     <div class="colom right">
         <div class="logo"><img src="../img/logo blue.png"></div>
-        <h2>Sales Person</h2>
+        <h2>Salespeople </h2>
         <!-- Add a new User -->
         <button id="addNewButton" onclick="addSP();">
             <span><strong>&#43;</strong></span>
-            Add new Sales Person
+            Add new Salesperson
         </button>
         <br>
         <hr>

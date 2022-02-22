@@ -30,7 +30,7 @@
 
         if (!empty($_SESSION["user"]) && $_SESSION["user"] == "Admin") {
             echo '<div class="centerbtn1">
-            <a href="SalesPerson.php"> <button class="btn"> Sales Persons </button> </a>
+            <a href="SalesPerson.php"> <button class="btn"> Salespeople  </button> </a>
             </div>
             </br>';
         }

@@ -31,7 +31,7 @@
         <div class="head-flex">
             <div class="header-container">
                 <h3>Tasks</h3>
-                <p class="instructions">click + too add a new task--- double click to delete a task</p>
+                <p class="instructions">Click + to add a new task --- Double click to delete a task</p>
             </div>
 
             <div class="logo-container">
