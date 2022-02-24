@@ -21,7 +21,7 @@ $time = date("H:i:sa");
 
 // $sql = "SET FOREIGN_KEY_CHECKS=0;"; // If foreign key check is enabled, we can't update values.
 $sql = "update customer set Name='$name', Address='$address', PhoneNumber=$telNo, Email='$email' where PhoneNumber=$currentTel;";
-$sql .= "insert into customer_manage(SID, Customer, Task, Date, Time) values($SID, $telNo, '$task', '$date', '$time');";
+// $sql .= "insert into customer_manage(SID, Customer, Task, Date, Time) values($SID, $telNo, '$task', '$date', '$time');";
 // $sql .= "SET FOREIGN_KEY_CHECKS=1;"; // Enable foreign key check again after updating data
 
 if (mysqli_multi_query($con, $sql)) {
